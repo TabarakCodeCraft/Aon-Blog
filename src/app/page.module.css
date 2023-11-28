@@ -1,69 +1,85 @@
-.home{
+.home {
   font-family: "Roboto", sans-serif;
 }
-.home .cover{
-    height:300px;
-    background-color: #f6f6f6;
-    position: relative;
+.home .cover {
+  height: 300px;
+  background-color: #f6f6f6;
+  position: relative;
 }
-.home .cover .overlay{
-position: absolute;
-left: 0;
-right: 0;
-top: 0;
-bottom: 0;
-background-color: #c2b7b7;
+.home .cover .overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #c2b7b7;
 }
-.home .cover .overlay .title{
-color: #f6f6f6;
-margin-top: 100px;
+.home .cover .overlay .title {
+  color: #f6f6f6;
+  margin-top: 100px;
 }
-.home .cover .overlay .title h1{
-    font-size: 35px;
-    margin-bottom: 4px;
+.home .cover .overlay .title h1 {
+  font-size: 35px;
+  margin-bottom: 4px;
 }
-.home .cover .overlay .title p{
-    font-size: 25px;
+.home .cover .overlay .title p {
+  font-size: 25px;
 }
-.home .grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:  24px;
-    margin-top: -60px;
-    position: relative;
-    margin-bottom: 60px;
+.home .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: -60px;
+  position: relative;
+  margin-bottom: 60px;
 }
-.loadingContainer{
-height: 500px;
-display: flex;
-align-items: center ;
-justify-content: center;
+.loadingContainer {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.loader{
-    font-size: 48px;
-    color: #000;
-    display: inline-block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    position: relative;
-  }
-  .loader:after{
-    content: 'Loading';
-    position: relative;
-    z-index: 5;
-  }
-  .loader:before{
-    content: '';
-    height: 6px;
-    border: 1px solid;
-    border-radius: 10px;
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-    background: linear-gradient(#FF3D00 100%, transparent 0) no-repeat;
-    background-size: 0% auto;
-    animation: 10s lineGrow linear infinite;
-  }
+.loader {
+  font-size: 48px;
+  color: #000;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  position: relative;
+}
+.loader:after {
+  content: "Loading";
+  position: relative;
+  z-index: 5;
+}
+.loader:before {
+  content: "";
+  height: 6px;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background: linear-gradient(#ff3d00 100%, transparent 0) no-repeat;
+  background-size: 0% auto;
+  animation: 10s lineGrow linear infinite;
+}
 
-  @keyframes lineGrow {to {  background-size: 100% auto}}
+@keyframes lineGrow {
+  to {
+    background-size: 100% auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .home .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

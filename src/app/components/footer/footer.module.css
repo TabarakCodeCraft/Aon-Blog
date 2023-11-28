@@ -1,20 +1,30 @@
 .footer {
-   background-color: #eee;
+  background-color: #eee;
 }
 
 .footer .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
 }
-.footer .content ul{
-    display: flex;
-    list-style-type: none;
-    gap: 34px;
+.footer .content ul {
+  display: flex;
+  list-style-type: none;
+  gap: 34px;
 }
-.footer .content ul a{
-text-decoration: none;
-color: black;
-font-size: 24px;
+.footer .content ul a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
 }
+
+
+@media screen and (max-width: 530px) {
+    .footer .content ul{
+        gap: 8px;
+    }
+    .footer .content h3{
+        font-size: 16px;
+    }
+  }
