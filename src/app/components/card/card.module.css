@@ -1,0 +1,49 @@
+.card{
+    animation: fadIn 0.4;
+}
+.card .img{
+   height: 200px;
+   background-color: #ccc;
+   position: relative;
+}
+.card .img .img{
+    object-fit: cover;
+}
+
+.card .title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 8px;
+    animation: fadIn 0.4;
+}
+.card .subtitle{
+    font-size: 16px;
+   color: #666;
+   animation: fadIn 0.4;
+}
+.card .footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+.card .footer a{
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.card .footer span{
+    color: #666;
+    font-size: 16px;
+}
+
+@keyframes fadIn{
+    0%{
+        opacity: 0px;
+        transform: translateY(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
