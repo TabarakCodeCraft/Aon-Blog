@@ -66,11 +66,15 @@
   animation: 10s lineGrow linear infinite;
 }
 
-@keyframes lineGrow {
-  to {
-    background-size: 100% auto;
+  @keyframes lineGrow {
+    0% {
+      background-size: 0% auto;
+    }
+    100% {
+      background-size: 100% auto;
+    }
   }
-}
+  
 
 @media screen and (max-width: 800px) {
   .home .grid {
