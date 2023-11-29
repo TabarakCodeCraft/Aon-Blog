@@ -29,12 +29,15 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-top: -60px;
+}
+
+.home .main {
   position: relative;
+  margin-top: -80px;
   margin-bottom: 60px;
 }
 .loadingContainer {
-  height: 500px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,15 +69,14 @@
   animation: 10s lineGrow linear infinite;
 }
 
-  @keyframes lineGrow {
-    0% {
-      background-size: 0% auto;
-    }
-    100% {
-      background-size: 100% auto;
-    }
+@keyframes lineGrow {
+  0% {
+    background-size: 0% auto;
   }
-  
+  100% {
+    background-size: 100% auto;
+  }
+}
 
 @media screen and (max-width: 800px) {
   .home .grid {
