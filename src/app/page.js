@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
-import introJs from "intro.js-react";
+import { Steps, Hints } from "intro.js-react";
+
 import { Container } from "./components/container/container";
 import { Header } from "./components/Header/header";
 import styles from "./page.module.css";
@@ -10,15 +11,29 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { SkeletonCard } from "./components/skeleton/skeleton";
 // import Joyride from "react-joyride";
-import 'intro.js/introjs.css';
+import "intro.js/introjs.css";
 
 export default function Home() {
-  const homeIntroRef = useRef(); 
   const cardIntroRef = useRef();
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [skip, setSkip] = useState(0);
   const [total, setTotal] = useState(0);
+
+  const steps = [
+    {
+      element: ".selector1",
+      intro: "Welcome This is my simple blog!",
+    },
+    {
+      element: ".selector2",
+      intro: "This is title",
+    },
+    {
+      element: ".card-div",
+      intro: "The blog posts here..!",
+    },
+  ];
 
   const getBlogs = () => {
     fetch(
@@ -36,42 +51,22 @@ export default function Home() {
     getBlogs();
   }, [skip]);
 
-  useEffect(() => {
-    const IntoJs = () => {
-      const steps = [
-        {
-          intro: "Welcome This is my simple blog!"
-        },
-        {
-          element: ".h1",
-          intro: "This is title",
-        },
-        {
-          element: ".card-div",
-          intro: "The blog posts here..!",
-        }
-      ];
-      homeIntroRef.current = IntroJs().setOptions({
-        steps,
-        showBullets: false,
-      });
-     
-      setTimeout(() => {
-        homeIntroRef.current.start();
-      }, 2000);
-    };
-    IntoJs();
-  }, []);
-
   return (
     <main className={styles.home}>
       <Header />
+      <Steps
+        enabled={!loading}
+        steps={steps}
+        initialStep={0}
+        onExit={() => console.log("exit")}
+      />
+
       <div className={styles.cover}>
         <div className={styles.overlay}>
           <Container>
             <div className={styles.title}>
-              <h1>Simple Blog.</h1>
-              <p>A blog created by Aon 2023</p>
+              <h1 className="selector1">Simple Blog.</h1>
+              <p className="selector2">A blog created by Aon 2023</p>
             </div>
           </Container>
         </div>
@@ -102,7 +97,7 @@ export default function Home() {
             >
               <div className={styles.grid}>
                 {list.map((el, i) => (
-                  <Card key={i} blog={el} introRef={cardIntroRef}/>
+                  <Card key={i} blog={el} introRef={cardIntroRef} />
                 ))}
               </div>
             </InfiniteScroll>

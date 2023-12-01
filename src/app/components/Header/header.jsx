@@ -9,7 +9,7 @@ export const Header = () => {
                 <div className={styles.content}>
                     <h3>Aon Blog</h3>
                     <ul>
-                        <li>
+                        <li  className="card-div">
                             <Link href={"/"}>Home</Link>
                         </li>
                         <li>
