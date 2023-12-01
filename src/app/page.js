@@ -1,5 +1,6 @@
 "use client";
-
+import { useRef } from "react";
+import introJs from "intro.js-react";
 import { Container } from "./components/container/container";
 import { Header } from "./components/Header/header";
 import styles from "./page.module.css";
@@ -8,8 +9,12 @@ import { Footer } from "./components/footer/footer";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { SkeletonCard } from "./components/skeleton/skeleton";
+// import Joyride from "react-joyride";
+import 'intro.js/introjs.css';
 
 export default function Home() {
+  const homeIntroRef = useRef(); 
+  const cardIntroRef = useRef();
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [skip, setSkip] = useState(0);
@@ -30,6 +35,33 @@ export default function Home() {
   useEffect(() => {
     getBlogs();
   }, [skip]);
+
+  useEffect(() => {
+    const IntoJs = () => {
+      const steps = [
+        {
+          intro: "Welcome This is my simple blog!"
+        },
+        {
+          element: ".h1",
+          intro: "This is title",
+        },
+        {
+          element: ".card-div",
+          intro: "The blog posts here..!",
+        }
+      ];
+      homeIntroRef.current = IntroJs().setOptions({
+        steps,
+        showBullets: false,
+      });
+     
+      setTimeout(() => {
+        homeIntroRef.current.start();
+      }, 2000);
+    };
+    IntoJs();
+  }, []);
 
   return (
     <main className={styles.home}>
@@ -70,7 +102,7 @@ export default function Home() {
             >
               <div className={styles.grid}>
                 {list.map((el, i) => (
-                  <Card key={i} blog={el} />
+                  <Card key={i} blog={el} introRef={cardIntroRef}/>
                 ))}
               </div>
             </InfiniteScroll>
