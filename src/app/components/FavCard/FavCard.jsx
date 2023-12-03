@@ -5,24 +5,24 @@ import Link from "next/link";
 import { FavBtn2 } from "../Favorite2/favBtn2";
 import dayjs from "dayjs";
 
-export const FavCard = ({ blog }) => {
+export const FavCard = ({ fblog }) => {
     return (
         <div className={styles.card}>
             <div className={styles.img}>
-                <Image src={blog.photo_url} alt={blog.title} fill />
+                <Image src={fblog.photo_url} alt={fblog.title} fill />
             </div>
             <div className={styles.title}>
-                <h1>{blog.title}</h1>
+                <h1>{fblog.title}</h1>
             </div>
             <div className={styles.subTitle}>
-                <p>{blog.category}</p>
+                <p>{fblog.category}</p>
             </div>
             <div className={styles.footer}>
                 <div className={styles.read}>
                     <Link href={`/article/${fblog.id}`}>Read Article</Link>
-                    <FavBtn2 blog={blog} />
+                    <FavBtn2 blog={fblog} />
                 </div>
-                <p>{dayjs(blog.created_at).format("YYYY, MMM DD")}</p>
+                <p>{dayjs(fblog.created_at).format("YYYY, MMM DD")}</p>
             </div>
         </div>
     )

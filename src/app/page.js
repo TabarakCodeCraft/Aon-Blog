@@ -12,6 +12,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { SkeletonCard } from "./components/skeleton/skeleton";
 // import Joyride from "react-joyride";
 import "intro.js/introjs.css";
+import { useStore } from "./store";
 
 export default function Home() {
   const cardIntroRef = useRef();
@@ -19,6 +20,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [skip, setSkip] = useState(0);
   const [total, setTotal] = useState(0);
+  const {setFavorite} =useStore();
 
   const steps = [
     {
@@ -50,6 +52,11 @@ export default function Home() {
   useEffect(() => {
     getBlogs();
   }, [skip]);
+
+  useEffect(() => {
+    let fav = localStorage.getItem("blog-fav");
+    if (fav) setFavorite(JSON.parse(fav));
+  }, []);
 
   return (
     <main className={styles.home}>

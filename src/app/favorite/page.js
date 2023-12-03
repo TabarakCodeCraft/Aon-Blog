@@ -1,3 +1,4 @@
+
 "use client";
 import { useState, useEffect } from "react";
 import { useStore } from "../store";
@@ -13,10 +14,9 @@ export default function Favorite() {
 
   useEffect(() => {
     let fav = localStorage.getItem("blog-fav");
-    if (fav) {
+    if (fav) 
       setFavorite(JSON.parse(fav));
-    }
-    console.log("Favorite:", favorite);
+    
   }, []);
   return (
     <main className={styles.home}>
