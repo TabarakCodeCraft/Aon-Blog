@@ -1,0 +1,61 @@
+.card {
+    animation: faideIn 0.5s;
+  }
+  .card .img {
+    height: 200px;
+    position: relative;
+    background-color: #eee;
+  }
+  .card .img img {
+    object-fit: cover;
+  }
+  .card .subTitle {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .card .footer .read {
+    display: flex;
+  }
+  .card .footer .read button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    overflow: visible;
+    margin-left: 15px;
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .card .footer .read button:hover {
+    transform: scale(2);
+  }
+  .card .title h1 {
+    font-size: 26px;
+  }
+  .card .subTitle p {
+    font-size: 20px;
+    color: #666666;
+  }
+  .card .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .card .footer a {
+    text-decoration: none;
+    color: #0000ff;
+  }
+  .card .footer p {
+    color: #666666;
+  }
+  @keyframes faideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
