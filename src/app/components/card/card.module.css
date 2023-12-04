@@ -36,7 +36,21 @@
     color: #666;
     font-size: 16px;
 }
-
+.card .footer .read {
+    display: flex;
+  }
+  .card .footer .read button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    overflow: visible;
+    margin-left: 15px;
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .card .footer .read button:hover {
+    transform: scale(2);
+  }
 @keyframes fadIn{
     0%{
         opacity: 0px;

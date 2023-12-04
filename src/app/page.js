@@ -41,6 +41,9 @@ export default function Home() {
     const initializeIntro = () => {
       const steps = [
         {
+          intro: "Welcome to the Simple Blog!",
+        },
+        {
           element: ".selector1",
           intro: "Welcome This is my simple blog!",
         },
@@ -52,6 +55,12 @@ export default function Home() {
           element: ".card-div",
           intro: "The blog posts here..!",
         },
+        {
+          element: ".favBtnContainer",
+          intro: "This is the favorite button",
+        },
+       { element : "a[href='/favorite']",
+        intro: "This is the favorite section"},
       ];
 
       homeIntroRef.current = introJs().setOptions({
