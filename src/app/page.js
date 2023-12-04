@@ -1,7 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { Steps, Hints } from "intro.js-react";
-
+// import { Steps, Hints } from "intro.js-react";
 import { Container } from "./components/container/container";
 import { Header } from "./components/Header/header";
 import styles from "./page.module.css";
@@ -10,33 +9,64 @@ import { Footer } from "./components/footer/footer";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { SkeletonCard } from "./components/skeleton/skeleton";
-// import Joyride from "react-joyride";
+
 import "intro.js/introjs.css";
+import introJs from "intro.js";
 import { useStore } from "./store";
 
 export default function Home() {
   const cardIntroRef = useRef();
+  const homeIntroRef = useRef();
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [skip, setSkip] = useState(0);
   const [total, setTotal] = useState(0);
   const {setFavorite} =useStore();
 
-  const steps = [
-    {
-      element: ".selector1",
-      intro: "Welcome This is my simple blog!",
-    },
-    {
-      element: ".selector2",
-      intro: "This is title",
-    },
-    {
-      element: ".card-div",
-      intro: "The blog posts here..!",
-    },
-  ];
+  // const steps = [
+  //   {
+  //     element: ".selector1",
+  //     intro: "Welcome This is my simple blog!",
+  //   },
+  //   {
+  //     element: ".selector2",
+  //     intro: "This is title",
+  //   },
+  //   {
+  //     element: ".card-div",
+  //     intro: "The blog posts here..!",
+  //   },
+  // ];
+  useEffect(() => {
+    const initializeIntro = () => {
+      const steps = [
+        {
+          element: ".selector1",
+          intro: "Welcome This is my simple blog!",
+        },
+        {
+          element: ".selector2",
+          intro: "This is title",
+        },
+        {
+          element: ".card-div",
+          intro: "The blog posts here..!",
+        },
+      ];
 
+      homeIntroRef.current = introJs().setOptions({
+        steps,
+        showBullets: false,
+      });
+
+      // Start home intro after a delay
+      setTimeout(() => {
+        homeIntroRef.current.start();
+      }, 2000);
+    };
+
+    initializeIntro();
+  }, []);
   const getBlogs = () => {
     fetch(
       `https://api.slingacademy.com/v1/sample-data/blog-posts?limit=12&offset=${skip}`
@@ -61,12 +91,11 @@ export default function Home() {
   return (
     <main className={styles.home}>
       <Header />
-      <Steps
+      {/* <Steps
         enabled={!loading}
         steps={steps}
         initialStep={0}
-        onExit={() => console.log("exit")}
-      />
+      /> */}
 
       <div className={styles.cover}>
         <div className={styles.overlay}>

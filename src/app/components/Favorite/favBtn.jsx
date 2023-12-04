@@ -11,6 +11,7 @@ const FavBtn = ({ blog }) => {
         let newArr = [];
         if (favObj) newArr = favorite.filter((el) => el.id !== blog.id);
         else newArr = [...favorite, blog];
+        console.log(blog.id)
 
         setFavorite(newArr);
         localStorage.setItem("blog-fav", JSON.stringify(newArr));

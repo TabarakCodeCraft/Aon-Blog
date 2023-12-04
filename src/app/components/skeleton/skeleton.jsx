@@ -4,7 +4,6 @@ export const SkeletonCard = () => {
   return (
       <div className={styles.skeletonCard}>
       <div className={`${styles.img} ${styles.skeleton}`}></div>
-      {/* شنو الساين دولار! باجر أسألة */}
       <div className={`${styles.title} ${styles.skeleton}`}></div>
       <div className={`${styles.subtitle} ${styles.skeleton}`}></div>
       <div className={styles.footer}>

@@ -5,7 +5,7 @@ import { useStore } from "../store";
 import styles from "./page.module.css";
 import { Header } from "../components/Header/header";
 import { Container } from "../components/container/container";
-import { FavCard } from "../components/FavCard/FavCard";
+import FavCard from "../components/FavCard/FavCard";
 import { Footer } from "../components/footer/footer";
 
 export default function Favorite() {
@@ -14,9 +14,7 @@ export default function Favorite() {
 
   useEffect(() => {
     let fav = localStorage.getItem("blog-fav");
-    if (fav) 
-      setFavorite(JSON.parse(fav));
-    
+    if (fav) setFavorite(JSON.parse(fav));
   }, []);
   return (
     <main className={styles.home}>
